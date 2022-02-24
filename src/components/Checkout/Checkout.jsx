@@ -1,9 +1,11 @@
+import axios from 'axios';
 import React from 'react';
 import {useSelector} from 'react-redux';
 import {useDispatch} from 'react-redux';
+import SelectPizza from '../SelectPizza/SelectPizza';
 import "./Checkout.css";
 import Axios from 'axios';
-import axios from 'axios';
+// import axios from 'axios';
 
 
 
@@ -49,10 +51,11 @@ function Checkout() {
         <h1>Checkout</h1>
         <div>
             <h3>Step 3: Checkout</h3>
+            <SelectPizza />
         </div>
 
         <div>
-            //customer Info goes here
+           {/* {pizzaAddReducer} */}
         </div>
 
         

@@ -3,12 +3,13 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import "./App.css";
 import SelectPizza from "../SelectPizza/SelectPizza";
+import AddCustomerInfo from "../AddCustomerInfo/AddCustomerInfo";
 import { HashRouter as Router, Route, Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import Checkout from '../Checkout/Checkout.jsx';
 
 function App() {
-  const [pizzaList, setPizzaList] = useState([]);
+  // const [pizzaList, setPizzaList] = useState([]);
 
   useEffect(() => {
     console.log("Inside useEffect");
@@ -37,7 +38,8 @@ function App() {
       <div className="App">
         <div className="links">
           <Link to="/api">Home</Link>
-          <Link to="/api/pizza">Pizza Selection</Link>
+          <Link to="/api/pizza/list">Pizza Selection</Link>
+          <Link to="/api/pizza/customer">Customer Info</Link>
           <Link to="/api/order">Checkout</Link>
         </div>
         <header className="App-header">
@@ -47,15 +49,17 @@ function App() {
           <img src="images/pizza_photo.png" />
           <p>Pizza is great.</p>
         </Route>
-        <Route path="/api/pizza">
+        <Route path="/api/pizza/list">
           <SelectPizza />
         </Route>
+
         <Route path="/api/order">
           <Checkout />
-          {/* put customer details component here
-        customer details will lead to the checkout page, 
-        but I don't think there should be a link for the checkout page specifically */}
         </Route>
+        <Route path="/api/pizza/customer">
+          <AddCustomerInfo />
+        </Route>
+
       </div>
     </Router>
   );
