@@ -9,6 +9,7 @@ import { Provider } from 'react-redux';
 
 
 
+
 const customerInfoReducer = (state = [], action) => {
     if (action.type === '') {
         return action.payload;
@@ -18,6 +19,7 @@ const customerInfoReducer = (state = [], action) => {
 
 
 const pizzaChoiceReducer = (state = [], action) => {
+
     if (action.type === '') {
         return action.payload;
     }
@@ -27,8 +29,10 @@ const pizzaChoiceReducer = (state = [], action) => {
 // The store is the big JavaScript Object that holds all of the information for our application
 const reduxStore = createStore(
     combineReducers({
+
         pizzaChoiceReducer,
         customerInfoReducer
+
     }),
     applyMiddleware(logger),
 );
@@ -36,9 +40,9 @@ const reduxStore = createStore(
 
 
 
-// ReactDOM.render(<App />, document.getElementById('root'));
 ReactDOM.render(
 <Provider store={reduxStore}>
     <App />
 </Provider>, 
 document.getElementById('root'));
+
