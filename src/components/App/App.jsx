@@ -1,10 +1,29 @@
-import React from 'react';
-import axios from 'axios';
-import './App.css';
-import SelectPizza from '../SelectPizza/SelectPizza'
+import React from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import "./App.css";
+import SelectPizza from "../SelectPizza/SelectPizza";
 import { HashRouter as Router, Route, Link } from 'react-router-dom'
 
+
 function App() {
+  const [pizzaList, setPizzaList] = useState([]);
+
+  useEffect(() => {
+    console.log("Inside useEffect");
+  }, []);
+
+  const getPizza = () => {
+    axios
+      .get("/api/pizza")
+      .then((response) => {
+        console.log("GET Pizza response= ", response);
+        setPizzaList();
+      })
+      .catch((error) => {
+        console.log("GET Pizza error", error);
+      });
+  };
 
   return (
     <Router>
