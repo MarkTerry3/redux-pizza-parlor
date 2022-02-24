@@ -5,6 +5,7 @@ import "./App.css";
 import SelectPizza from "../SelectPizza/SelectPizza";
 import { HashRouter as Router, Route, Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import Checkout from '../Checkout/Checkout.jsx';
 
 function App() {
   const [pizzaList, setPizzaList] = useState([]);
@@ -49,7 +50,8 @@ function App() {
         <Route path="/api/pizza">
           <SelectPizza />
         </Route>
-        <Route path="api/order">
+        <Route path="/api/order">
+          <Checkout />
           {/* put customer details component here
         customer details will lead to the checkout page, 
         but I don't think there should be a link for the checkout page specifically */}
