@@ -3,7 +3,7 @@ import axios from 'axios';
 
 
 
-function AddCustomerInfo(){
+function AddCustomerInfo({getPizza}){
     const [name, setName] = useState('')
     const [address, setAddress] = useState('')
     const [city, setCity] = useState('')
@@ -12,12 +12,11 @@ function AddCustomerInfo(){
 
     const handleSubmit = event => {
         event.preventDefault();
-        console.log('submit button pushed')
-        axios.post('/api/order', {customer_name : name, street_address : address, city: city, zip: zip, type: delTakeout })
-            .then(response =>{                                                                          
-            ();
-            })
-    }
+        // axios.post('/api/order', {customer_name : name, street_address : address, city: city, zip: zip, type: delTakeout })
+        dispatch({
+          type: 'ADD_CUSTOMER_INFO',
+          payload: 
+        })
 
     return (
         <> 
@@ -44,7 +43,7 @@ function AddCustomerInfo(){
             value={zip}
             onChange={(event) => setZip(event.target.value)}/>
         <input type="radio" id="delivery" name="delTakeout" value="delivery" onChange={(event) => setDelTakeout(event.target.value)}/>
-        <label for="delivery">Delivery</label><br></br>
+        <label for="delivery">Delivery</label>
         <input type="radio" id="takeout" name="delTakeout" value="takeOut" onChange={(event) => setDelTakeout(event.target.value)}/>
         <label for="takeout">Take Out</label><br></br>
         <button type="submit">NEXT</button>

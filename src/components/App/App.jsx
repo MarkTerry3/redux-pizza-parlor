@@ -52,7 +52,7 @@ function App() {
           <SelectPizza />
         </Route>
         <Route path="/api/pizza/customer">
-          <AddCustomerInfo />
+          <AddCustomerInfo  />
         </Route>
         <Route path="api/order">
           {/* put customer details component here

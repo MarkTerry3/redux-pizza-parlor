@@ -7,7 +7,7 @@ import logger from "redux-logger";
 import { Provider } from "react-redux";
 
 const customerInfoReducer = (state = [], action) => {
-  if (action.type === "") {
+  if (action.type === "ADD_CUSTOMER_INFO") {
     return action.payload;
   }
   return state;
