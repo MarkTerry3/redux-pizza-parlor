@@ -14,7 +14,7 @@ function PizzaListItem({ options }) {
 
   return (
     <li>
-      {options.name}: {options.description} {options.price}
+      {options.name}: {options.description} {options.price} <button onClick={addPizzaOptions}>Add To Cart</button>
     </li>
   );
 }

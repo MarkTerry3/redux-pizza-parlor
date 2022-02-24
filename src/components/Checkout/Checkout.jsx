@@ -1,5 +1,5 @@
+import axios from 'axios';
 import React from 'react';
-import ProductList from '../ProductList/ProductList';
 import {useSelector} from 'react-redux';
 import {useDispatch} from 'react-redux';
 import "./Checkout.css";
@@ -8,11 +8,19 @@ import "./Checkout.css";
 
 function Checkout() {
 
+    const pizzaAddReducer = useSelector(store => store.pizzaAddReducer);
 
     const handleCheckout = () => {
 
 
     // POST or GET route in a function
+    axios.post('/api/order', {pizzaAddReducer})
+        .then((response) => {
+            console.log('This is response in POST', response);
+        })
+        .catch((error) => {
+            console.log('error in POST', error);
+        })
 
 
     }
@@ -22,13 +30,13 @@ function Checkout() {
 
     return(
         <>
-        <header className='App-header'>CheckOut</header>
+        <header className='Checkout-header'>CheckOut</header>
         <div>
             <h3>Step 3: Checkout</h3>
         </div>
 
         <div>
-            //customer Info goes here
+           {pizzaAddReducer}
         </div>
 
         
