@@ -10,12 +10,14 @@ function AddCustomerInfo({getPizza}){
     const [zip, setZip] = useState('')
     const [delTakeout, setDelTakeout] = useState('')
 
+    let [customerToAdd, setCustomerToAdd] = useState({ customer_name : name, street_address : address, city: city, zip: zip, type: delTakeout } )
+
     const handleSubmit = event => {
         event.preventDefault();
         // axios.post('/api/order', {customer_name : name, street_address : address, city: city, zip: zip, type: delTakeout })
         dispatch({
           type: 'ADD_CUSTOMER_INFO',
-          payload: 
+          payload: customerToAdd
         })
 
     return (
