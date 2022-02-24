@@ -2,6 +2,7 @@ import axios from 'axios';
 import React from 'react';
 import {useSelector} from 'react-redux';
 import {useDispatch} from 'react-redux';
+import SelectPizza from '../SelectPizza/SelectPizza';
 import "./Checkout.css";
 
 
@@ -33,6 +34,7 @@ function Checkout() {
         <header className='Checkout-header'>CheckOut</header>
         <div>
             <h3>Step 3: Checkout</h3>
+            <SelectPizza />
         </div>
 
         <div>
