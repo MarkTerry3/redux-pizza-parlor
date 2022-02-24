@@ -4,24 +4,41 @@ import {useSelector} from 'react-redux';
 import {useDispatch} from 'react-redux';
 import SelectPizza from '../SelectPizza/SelectPizza';
 import "./Checkout.css";
+import Axios from 'axios';
+// import axios from 'axios';
 
 
 
 function Checkout() {
 
-    const pizzaAddReducer = useSelector(store => store.pizzaAddReducer);
+    const customerInfoReducer = useSelector(store => store.customerInfoReducer);
+    const pizzaChoiceReducer = useSelector(store => store.pizzaChoiceReducer);
+
 
     const handleCheckout = () => {
 
 
-    // POST or GET route in a function
-    axios.post('/api/order', {pizzaAddReducer})
+        // POST for customerInfoReducer
+    axios.post('/api/order', {customerInfoReducer})
         .then((response) => {
-            console.log('This is response in POST', response);
+            console.log('in .then POST: customerInfoReducer', response);
+
         })
         .catch((error) => {
-            console.log('error in POST', error);
+            console.log('error POST: customerInfoReducer', error);
         })
+
+
+        
+        //POST for pizzaChoiceReducer
+    axios.post('/api/pizza', {pizzaChoiceReducer})
+        .then((response) => {
+            console.log('in .then POST: pizzaChoiceReducer', response);
+        })
+        .catch((error) => {
+            console.log('error POST: pizzaChoiceReducer', error);
+        })
+    
 
 
     }
@@ -31,14 +48,14 @@ function Checkout() {
 
     return(
         <>
-        <header className='Checkout-header'>CheckOut</header>
+        <h1>Checkout</h1>
         <div>
             <h3>Step 3: Checkout</h3>
             <SelectPizza />
         </div>
 
         <div>
-           {pizzaAddReducer}
+           {/* {pizzaAddReducer} */}
         </div>
 
         

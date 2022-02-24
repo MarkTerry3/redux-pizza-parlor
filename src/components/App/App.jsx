@@ -6,7 +6,7 @@ import SelectPizza from "../SelectPizza/SelectPizza";
 import AddCustomerInfo from "../AddCustomerInfo/AddCustomerInfo";
 import { HashRouter as Router, Route, Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import Checkout from "../Checkout/Checkout.jsx"
+import Checkout from '../Checkout/Checkout.jsx';
 
 function App() {
   // const [pizzaList, setPizzaList] = useState([]);
