@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import './App.css';
 import SelectPizza from '../SelectPizza/SelectPizza'
+import { HashRouter as Router, Route, Link } from 'react-router-dom'
 
 function App() {
 
