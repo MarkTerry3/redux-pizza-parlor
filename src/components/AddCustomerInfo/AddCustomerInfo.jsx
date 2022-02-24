@@ -15,7 +15,7 @@ function AddCustomerInfo(){
         console.log('submit button pushed')
         axios.post('/api/order', {customer_name : name, street_address : address, city: city, zip: zip, type: delTakeout })
             .then(response =>{                                                                          
-            ();
+            // ();
             })
     }
 

@@ -36,7 +36,7 @@ function Checkout() {
         </div>
 
         <div>
-           {pizzaAddReducer}}
+           {pizzaAddReducer}
         </div>
 
         
