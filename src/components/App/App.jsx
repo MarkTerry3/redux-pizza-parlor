@@ -3,11 +3,12 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import "./App.css";
 import SelectPizza from "../SelectPizza/SelectPizza";
+import AddCustomerInfo from "../AddCustomerInfo/AddCustomerInfo";
 import { HashRouter as Router, Route, Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 function App() {
-  const [pizzaList, setPizzaList] = useState([]);
+  // const [pizzaList, setPizzaList] = useState([]);
 
   useEffect(() => {
     console.log("Inside useEffect");
@@ -36,7 +37,8 @@ function App() {
       <div className="App">
         <div className="links">
           <Link to="/api">Home</Link>
-          <Link to="/api/pizza">Pizza Selection</Link>
+          <Link to="/api/pizza/list">Pizza Selection</Link>
+          <Link to="/api/pizza/customer">Customer Info</Link>
           <Link to="/api/order">Checkout</Link>
         </div>
         <header className="App-header">
@@ -46,8 +48,11 @@ function App() {
           <img src="images/pizza_photo.png" />
           <p>Pizza is great.</p>
         </Route>
-        <Route path="/api/pizza">
+        <Route path="/api/pizza/list">
           <SelectPizza />
+        </Route>
+        <Route path="/api/pizza/customer">
+          <AddCustomerInfo />
         </Route>
         <Route path="api/order">
           {/* put customer details component here
