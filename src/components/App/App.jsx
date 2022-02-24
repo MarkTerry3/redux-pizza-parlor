@@ -3,22 +3,28 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import "./App.css";
 import SelectPizza from "../SelectPizza/SelectPizza";
-import { HashRouter as Router, Route, Link } from 'react-router-dom'
-
+import { HashRouter as Router, Route, Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 function App() {
   const [pizzaList, setPizzaList] = useState([]);
 
   useEffect(() => {
     console.log("Inside useEffect");
+    getPizza();
   }, []);
+
+  const dispatch = useDispatch();
 
   const getPizza = () => {
     axios
       .get("/api/pizza")
       .then((response) => {
         console.log("GET Pizza response= ", response);
-        setPizzaList();
+        dispatch({
+          type: "FETCH_PIZZA_OPTIONS",
+          payload: response.data,
+        });
       })
       .catch((error) => {
         console.log("GET Pizza error", error);
@@ -27,24 +33,23 @@ function App() {
 
   return (
     <Router>
-
-      <div className='App'>
-        <div className='links'>
-          <Link to='/api'>Home</Link>
-          <Link to='/api/pizza'>Pizza Selection</Link>
-          <Link to='/api/order'>Checkout</Link>
+      <div className="App">
+        <div className="links">
+          <Link to="/api">Home</Link>
+          <Link to="/api/pizza">Pizza Selection</Link>
+          <Link to="/api/order">Checkout</Link>
         </div>
-        <header className='App-header'>
-          <h1 className='App-title'>Prime Pizza</h1>
+        <header className="App-header">
+          <h1 className="App-title">Prime Pizza</h1>
         </header>
-        <Route path='/api' exact>
-          <img src='images/pizza_photo.png' />
+        <Route path="/api" exact>
+          <img src="images/pizza_photo.png" />
           <p>Pizza is great.</p>
         </Route>
-        <Route path='/api/pizza'>
+        <Route path="/api/pizza">
           <SelectPizza />
         </Route>
-        <Route path='api/order'>
+        <Route path="api/order">
           {/* put customer details component here
         customer details will lead to the checkout page, 
         but I don't think there should be a link for the checkout page specifically */}
