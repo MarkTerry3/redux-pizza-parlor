@@ -43,9 +43,9 @@ function AddCustomerInfo(){
             placeholder="Zip Code" 
             value={zip}
             onChange={(event) => setZip(event.target.value)}/>
-        <input type="radio" id="delivery" name="delTakeout" value="delivery" onChange={(event) => setdelTakeout(event.target.value)}/>
+        <input type="radio" id="delivery" name="delTakeout" value="delivery" onChange={(event) => setDelTakeout(event.target.value)}/>
         <label for="delivery">Delivery</label><br></br>
-        <input type="radio" id="takeout" name="delTakeout" value="takeOut" onChange={(event) => setdelTakeout(event.target.value)}/>
+        <input type="radio" id="takeout" name="delTakeout" value="takeOut" onChange={(event) => setDelTakeout(event.target.value)}/>
         <label for="takeout">Take Out</label><br></br>
         <button type="submit">NEXT</button>
         </form>
