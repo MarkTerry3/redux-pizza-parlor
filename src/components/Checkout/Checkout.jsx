@@ -12,11 +12,11 @@ import Axios from 'axios';
 function Checkout() {
 
     const customerInfoReducer = useSelector(store => store.customerInfoReducer);
-    const pizzaChoiceReducer = useSelector(store => store.pizzaChoiceReducer);
+    const pizzaAddReducer = useSelector(store => store.pizzaAddReducer);
 
 
     const handleCheckout = () => {
-
+        console.log(customerInfoReducer);
 
         // POST for customerInfoReducer
     axios.post('/api/order', {customerInfoReducer})
@@ -29,18 +29,6 @@ function Checkout() {
         })
 
 
-        
-        //POST for pizzaChoiceReducer
-    axios.post('/api/pizza', {pizzaChoiceReducer})
-        .then((response) => {
-            console.log('in .then POST: pizzaChoiceReducer', response);
-        })
-        .catch((error) => {
-            console.log('error POST: pizzaChoiceReducer', error);
-        })
-    
-
-
     }
 
 
@@ -51,11 +39,17 @@ function Checkout() {
         <h1>Checkout</h1>
         <div>
             <h3>Step 3: Checkout</h3>
-            <SelectPizza />
+            {/* <SelectPizza /> */}
         </div>
 
         <div>
-           {/* {pizzaAddReducer} */}
+           {pizzaAddReducer.map((pizza) => {
+               return (
+                   <div key={pizza.id}>
+                       {pizza.name} : {pizza.description} {pizza.price}
+        </div> 
+               )
+           })}
         </div>
 
         
