@@ -3,7 +3,6 @@ import axios from 'axios';
 import { useDispatch } from 'react-redux';
 
 
-
 function Admin(){
     const dispatch = useDispatch()
 
@@ -23,10 +22,6 @@ function Admin(){
         console.log('error on GET', error);
       });
     }
-
-
-
-
 
     return(
 
