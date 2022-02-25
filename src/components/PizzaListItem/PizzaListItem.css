@@ -1,0 +1,7 @@
+.pizza-item {
+    height: 250px;
+    width: 200px;
+    background-color: paleturquoise;
+    border: double;
+    gap: 30px 100px;
+}
