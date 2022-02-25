@@ -57,7 +57,7 @@ function App() {
           <Checkout />
         </Route>
         <Route path="/api/pizza/customer">
-          <AddCustomerInfo />
+          <AddCustomerInfo  />
         </Route>
 
       </div>
