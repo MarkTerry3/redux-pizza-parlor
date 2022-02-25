@@ -2,7 +2,6 @@ import {useState} from 'react';
 import {useDispatch} from 'react-redux'
 
 
-
 function AddCustomerInfo(){
     const [name, setName] = useState('')
     const [address, setAddress] = useState('')
@@ -10,18 +9,17 @@ function AddCustomerInfo(){
     const [zip, setZip] = useState('')
     const [delTakeout, setDelTakeout] = useState('')
     const dispatch = useDispatch();
-    let [customerToAdd, setCustomerToAdd] = useState({})
-
 
     const handleSubmit = event => {
-
         event.preventDefault();
-        console.log (customerToAdd)
-        console.log (name)
         dispatch({
           type: 'ADD_CUSTOMER_INFO',
           payload:{name, address, city, zip, delTakeout}
         })
+        setZip("");
+        setAddress("");
+        setCity("");
+        setName("");
       }
     return (
         <> 
