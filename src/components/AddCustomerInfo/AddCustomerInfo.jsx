@@ -3,23 +3,19 @@ import {useDispatch} from 'react-redux'
 
 
 function AddCustomerInfo(){
-    const [name, setName] = useState('')
-    const [address, setAddress] = useState('')
+    const [customer_name, setCustomer_name] = useState('')
+    const [street_address, setStreet_address] = useState('')
     const [city, setCity] = useState('')
     const [zip, setZip] = useState('')
-    const [delTakeout, setDelTakeout] = useState('')
+    const [type, setType] = useState('')
     const dispatch = useDispatch();
 
     const handleSubmit = event => {
         event.preventDefault();
         dispatch({
           type: 'ADD_CUSTOMER_INFO',
-          payload:{name, address, city, zip, delTakeout}
+          payload:{customer_name, street_address, city, zip, type}
         })
-        setZip("");
-        setAddress("");
-        setCity("");
-        setName("");
       }
     return (
         <> 
@@ -28,13 +24,13 @@ function AddCustomerInfo(){
           <input 
             required 
             placeholder="Name" 
-            value={name}
-            onChange={(event) => setName(event.target.value)}/>
+            value={customer_name}
+            onChange={(event) => setCustomer_name(event.target.value)}/>
          <input 
             required 
             placeholder="Street Address" 
-            value={address}
-            onChange={(event) => setAddress(event.target.value)}/>
+            value={street_address}
+            onChange={(event) => setStreet_address(event.target.value)}/>
          <input 
             required 
             placeholder="City" 
@@ -45,9 +41,9 @@ function AddCustomerInfo(){
             placeholder="Zip Code" 
             value={zip}
             onChange={(event) => setZip(event.target.value)}/>
-        <input type="radio" id="delivery" name="delTakeout" value="delivery" onChange={(event) => setDelTakeout(event.target.value)}/>
+        <input type="radio" id="delivery" name="type" value="delivery" onChange={(event) => setType(event.target.value)}/>
         <label form="delivery">Delivery</label>
-        <input type="radio" id="takeout" name="delTakeout" value="takeOut" onChange={(event) => setDelTakeout(event.target.value)}/>
+        <input type="radio" id="takeout" name="type" value="takeOut" onChange={(event) => setType(event.target.value)}/>
         <label form="takeout">Take Out</label><br></br>
         <button type="submit">NEXT</button>
         </form>
