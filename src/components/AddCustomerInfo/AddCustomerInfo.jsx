@@ -14,7 +14,6 @@ function AddCustomerInfo(){
 
 
     const handleSubmit = event => {
-
         event.preventDefault();
         console.log (customerToAdd)
         console.log (name)
