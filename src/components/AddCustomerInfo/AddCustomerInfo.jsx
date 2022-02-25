@@ -1,25 +1,28 @@
 import {useState} from 'react';
-import axios from 'axios';
+import {useDispatch} from 'react-redux'
 
 
 
-function AddCustomerInfo({getPizza}){
+function AddCustomerInfo(){
     const [name, setName] = useState('')
     const [address, setAddress] = useState('')
     const [city, setCity] = useState('')
     const [zip, setZip] = useState('')
     const [delTakeout, setDelTakeout] = useState('')
+    const dispatch = useDispatch();
+    let [customerToAdd, setCustomerToAdd] = useState({})
 
-    let [customerToAdd, setCustomerToAdd] = useState({ customer_name : name, street_address : address, city: city, zip: zip, type: delTakeout } )
 
     const handleSubmit = event => {
+
         event.preventDefault();
-        // axios.post('/api/order', {customer_name : name, street_address : address, city: city, zip: zip, type: delTakeout })
+        console.log (customerToAdd)
+        console.log (name)
         dispatch({
           type: 'ADD_CUSTOMER_INFO',
-          payload: customerToAdd
+          payload:{name, address, city, zip, delTakeout}
         })
-
+      }
     return (
         <> 
         <h2>Step 2: Customer Information</h2>
@@ -45,9 +48,9 @@ function AddCustomerInfo({getPizza}){
             value={zip}
             onChange={(event) => setZip(event.target.value)}/>
         <input type="radio" id="delivery" name="delTakeout" value="delivery" onChange={(event) => setDelTakeout(event.target.value)}/>
-        <label for="delivery">Delivery</label>
+        <label form="delivery">Delivery</label>
         <input type="radio" id="takeout" name="delTakeout" value="takeOut" onChange={(event) => setDelTakeout(event.target.value)}/>
-        <label for="takeout">Take Out</label><br></br>
+        <label form="takeout">Take Out</label><br></br>
         <button type="submit">NEXT</button>
         </form>
       </>
